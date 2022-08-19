@@ -24,3 +24,10 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # vorher: liste einfach anzeigen mti --> streamlit.dataframe(my_fruit_list)
 # jetzt aus variable bedienen
 streamlit.dataframe(fruits_to_show)
+
+#  Lesson 9: Streamlit - Using APIs & Variables - API Calls in Streamlit
+# Let's Call the Fruityvice API from Our Streamlit App!
+# We need to bring in another Python package library. This one is called requests. 
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
