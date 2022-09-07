@@ -1,4 +1,8 @@
 import streamlit
+import pandas
+import requests
+import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title('My Mom´s New Healty Diner')
 streamlit.header('Breakfast Favorites')
@@ -10,7 +14,7 @@ streamlit.text('🥑🍞 Avocado Toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 
-import pandas
+# import pandas
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
@@ -37,7 +41,7 @@ streamlit.write('The user entered ', fruit_choice)
 # Ende Lesson 9: Streamlit - Using APIs & Variables Variables in Streamlit
 
 
-import requests
+# import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
 # streamlit.text(fruityvice_response) # just writes the data to the screen
@@ -48,7 +52,11 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do? show content in a readable table
 streamlit.dataframe(fruityvice_normalized)
 
-import snowflake.connector
+# stop command
+# don't run anything past here whilte we broubleshott
+streamlit.stop()
+
+# import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 # my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
