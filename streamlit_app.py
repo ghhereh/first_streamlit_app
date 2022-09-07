@@ -44,22 +44,15 @@ try:
       # streamlit.write('The user entered ', fruit_choice)
       streamlit.error('Please select a fruit to get information.')
   else:
-      
-      
 # Ende Lesson 9: Streamlit - Using APIs & Variables Variables in Streamlit
-
-
 # import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-
+      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # streamlit.text(fruityvice_response) # just writes the data to the screen
-
 # Course Lesson 9: Streamlit - Using APIs & Variables - Making the JSON Look Good 
 # write your own comment -what does the next line do? show content like a string less readable
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do? show content in a readable table
-streamlit.dataframe(fruityvice_normalized)
-
+    streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
       streamlit.error()
 
