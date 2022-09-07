@@ -43,7 +43,7 @@ try:
   if not fruit_choice:
       # streamlit.write('The user entered ', fruit_choice)
       streamlit.error('Please select a fruit to get information.')
-  else
+  else:
       
       
 # Ende Lesson 9: Streamlit - Using APIs & Variables Variables in Streamlit
