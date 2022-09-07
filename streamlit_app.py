@@ -32,6 +32,14 @@ streamlit.dataframe(fruits_to_show)
 #  Lesson 9: Streamlit - Using APIs & Variables - API Calls in Streamlit
 # Let's Call the Fruityvice API from Our Streamlit App!
 # We need to bring in another Python package library. This one is called requests. 
+
+#  Lesson 12: Streamlit, but with Snowflake Added Create a Function 
+# create the repeatable code block (called a function)
+def get_fruityvice_data(this_fruit_choice):
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  return (fruityvice_normalized)
+
 # New section to display fruityvice api responce
 streamlit.header("Fruityvice Fruit Advice!")
 
@@ -44,15 +52,17 @@ try:
       # streamlit.write('The user entered ', fruit_choice)
       streamlit.error('Please select a fruit to get information.')
   else:
+    back_from_function = get_fruityvice_date(fruit_choice)
+    streamlit.dataform(back_from_function)
 # Ende Lesson 9: Streamlit - Using APIs & Variables Variables in Streamlit
 # import requests
-      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+###      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # streamlit.text(fruityvice_response) # just writes the data to the screen
 # Course Lesson 9: Streamlit - Using APIs & Variables - Making the JSON Look Good 
 # write your own comment -what does the next line do? show content like a string less readable
-      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+###      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do? show content in a readable table
-      streamlit.dataframe(fruityvice_normalized)
+###      streamlit.dataframe(fruityvice_normalized)
 
 except URLError as e:
   streamlit.error()
