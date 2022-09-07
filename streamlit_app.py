@@ -69,7 +69,7 @@ except URLError as e:
 
 # stop command
 # don't run anything past here whilte we broubleshott
-streamlit.stop()
+####streamlit.stop()
 
 # import snowflake.connector
 ###### my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
@@ -100,3 +100,8 @@ streamlit.dataframe(my_data_rows)
 #  Lesson 12: Streamlit, but with Snowflake Added Time to Tidy Up? 
 # Write Code to Add Rows to Our Fruit List in Snowflake
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+
+
+# stop command
+# don't run anything past here whilte we broubleshott
+streamlit.stop()
