@@ -32,12 +32,20 @@ streamlit.dataframe(fruits_to_show)
 #  Lesson 9: Streamlit - Using APIs & Variables - API Calls in Streamlit
 # Let's Call the Fruityvice API from Our Streamlit App!
 # We need to bring in another Python package library. This one is called requests. 
+# New section to display fruityvice api responce
 streamlit.header("Fruityvice Fruit Advice!")
 
 # Start Lesson 9: Streamlit - Using APIs & Variables Variables in Streamlit
 # Add a Text Entry Box and Send the Input to Fruityvice as Part of the API Call
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
+#fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+      # streamlit.write('The user entered ', fruit_choice)
+      streamlit.error('Please select a fruit to get information.')
+  else
+      
+      
 # Ende Lesson 9: Streamlit - Using APIs & Variables Variables in Streamlit
 
 
@@ -51,6 +59,9 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do? show content in a readable table
 streamlit.dataframe(fruityvice_normalized)
+
+except URLError as e:
+      streamlit.error()
 
 # stop command
 # don't run anything past here whilte we broubleshott
