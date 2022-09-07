@@ -47,7 +47,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do? show content in a readable table
 streamlit.dataframe(fruityvice_normalized)
-  
+
 import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
@@ -59,3 +59,12 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("the fruit list contains:")
 # streamlit.dataframe(my_data_row)
 streamlit.dataframe(my_data_rows)
+
+
+#  Lesson 12: Streamlit, but with Snowflake Added Streamlit Challenge Lab! 
+# Allow the end user to add a fruit to the list
+# add_my_fruit = ....................
+
+#  Lesson 12: Streamlit, but with Snowflake Added Time to Tidy Up? 
+# Write Code to Add Rows to Our Fruit List in Snowflake
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
