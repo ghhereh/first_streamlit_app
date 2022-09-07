@@ -53,7 +53,7 @@ try:
       streamlit.error('Please select a fruit to get information.')
   else:
     back_from_function = get_fruityvice_data(fruit_choice)
-    streamlit.dataform(back_from_function)
+    streamlit.dataframe(back_from_function)
 # Ende Lesson 9: Streamlit - Using APIs & Variables Variables in Streamlit
 # import requests
 ###      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
