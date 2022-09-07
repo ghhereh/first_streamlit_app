@@ -79,7 +79,7 @@ except URLError as e:
 # my_data_row = my_cur.fetchone()
 ###### my_data_rows = my_cur.fetchall()
 # streamlit.text("Hello from Snowflake:")
-streamlit.header("the fruit list contains:")
+streamlit.header("the fruit load list contains:")
 # Snowflake related funktions
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
