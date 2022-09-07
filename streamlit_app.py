@@ -99,7 +99,7 @@ streamlit.dataframe(my_data_rows)
 
 #  Lesson 12: Streamlit, but with Snowflake Added Time to Tidy Up? 
 # Write Code to Add Rows to Our Fruit List in Snowflake
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+########## my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
 
 # stop command
